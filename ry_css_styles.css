@@ -1,34 +1,7 @@
 body, html {
 	height: 100%;
 	margin: 0%;
-	background-color: #A9A9A9;
-}
-
-nav ul {
-	list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #8C001A;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-li {
-	float: left;
-}
-
-li a {
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-li a:hover {
-    background-color: #8C001A;
+	background-color: #247ad0;
 }
 
 .home {
@@ -36,10 +9,21 @@ li a:hover {
 	margin: 0%;
 }
 
-img {
-    display: block;
-    margin: auto;
+.bgimg1 {
+    height: 100%;
     width: 100%;
+    position: relative;
+    opacity: 0.75;
+    
+}
+
+a {
+    color: #32CD32;
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
 }
 
 .caption {
@@ -57,3 +41,36 @@ img {
 	border-style: none;
 }
 
+.clock {
+    width: 30rem;
+    height: 30rem;
+    border: 20px solid blue;
+    border-radius: 50%;
+    margin: 50px auto;
+    position: relative;
+    padding: 2rem;
+    box-shadow:
+      0 0 0 4px rgba(0, 0, 0, 0.1),
+      inset 0 0 0 3px #EFEFEF,
+      inset 0 0 10px black,
+      0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+.clock-face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform: translateY(-3px); /*account for the height of the clocks hands*/
+}
+
+.hand {
+    width: 50%;
+    height: 6px;
+    background: black;
+    position: absolute;
+    top: 50%;
+    transform-origin: 100%;
+    transform: rotate(90deg);
+    transition: all 0.25s;
+    transition-timing-function: cubic-bezier(0, 1.34, 0, 1.35);
+}
