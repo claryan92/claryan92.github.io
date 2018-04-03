@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Ryan Clark</title>
+	<link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<style>
+		html {
+			box-sizing: border-box;
+			background: #ffc600;
+			font-family: 'helvetica neue';
+			font-size: 20px;
+			font-weight: 200;
+		}
+
+		body {
+			margin: 0;
+		}
+		*, *:before, *:after {
+			box-sizing: inherit;
+		}
+
+		.panels {
+	      min-height:100vh;
+	      overflow: hidden;
+	      display: flex;
+	    }
+	    .panel {
+	      background:#6B0F9C;
+	      box-shadow:inset 0 0 0 5px rgba(255,255,255,0.1);
+	      color:white;
+	      text-align: center;
+	      align-items:center;
+	      /* Safari transitionend event.propertyName === flex */
+	      /* Chrome + FF transitionend event.propertyName === flex-grow */
+	      transition:
+	        font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+	        flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+	        background 0.2s;
+	      font-size: 20px;
+	      background-size:cover;
+	      background-position:center;
+	      flex: 1;
+	      justify-content: center;
+	      align-items: center;
+	      display: flex;
+	      flex-direction: column;
+	    }
+
+	    .panel1 {background-image:url("IMG_20160714_151409182 (2).jpg"); }
+	    .panel2 {background-image:url("Kalua (North Canyon, Copper).jpg"); }
+	    .panel3 {background-image:url("20180211_105925.jpg");
+	    	flex: 2; }
+	    .panel4 {background-image:url("20171027_123459.jpg"); }
+	    .panel5 {background-image:url("Kipper (three gun spring).jpg"); }
+
+	    .panel > * {
+	      margin:0;
+	      width: 100%;
+	      transition:transform 0.5s;
+	      flex: 1 0 auto;
+	      display: flex;
+	      justify-content: center;
+	      align-items: center;
+	    }
+
+	    .panel > *:first-child { transform: translateY(-100%); }
+	    .panel.open-active > *:first-child {transform: translateY(0);}
+	    .panel > *:last-child { transform: translateY(100%); }
+	    .panel.open-active > *:last-child {transform: translateY(0);}
+	    
+	    .panel p {
+	      text-transform: uppercase;
+	      font-family: 'Amatic SC', cursive;
+	      text-shadow:0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
+	      font-size: 2em;
+	    }
+
+	    .panel p:nth-child(2) {
+	      font-size: 4em;
+	    }
+
+	    .panel.open {
+	      font-size:40px;
+	      flex: 5;
+	    }
+
+	    a {
+	    	color: #c0fff4;
+	    }
+	    
+	</style>
+	<div class="panels">
+	    <div class="panel panel1">
+	      <p><a href="https://github.com/claryan92/Prosper-IT">Prosper IT</a></p>
+	      <p>Projects</p>
+	      <p><a href=https://github.com/claryan92/BreakOut_Game>Breakout Game Code</a></p>
+	    </div>
+	    <div class="panel panel2">
+	      <p></p>
+	      <p>Portfolio</p>
+	      <p><a href="https://github.com/claryan92">Github Account</a></p>
+	    </div>
+	    <div class="panel panel3">
+	      <p>Software Developer</p>
+	      <p>Ryan Clark</p>
+	      <p></p>
+	    </div>
+	    <div class="panel panel4">
+	      <p></p>
+	      <p>Skills</p>
+	      <p>HTML<br>
+	      	CSS<br>
+	      	C#<br>
+	      	JavaScript<br>
+	      	SQL
+	      </p>
+	    </div>
+	    <div class="panel panel5">
+	      <p></p>
+	      <p>Contact</p>
+	      <p>
+	      	<p><a href="https://www.linkedin.com/in/ryan-clark-a09bb914a/">LinkedIn<br></a></p>
+	      	<a href="mailto:claryan92@gmail.com">Email: claryan92@gmail.com</a>
+	      	Phone Number: 505-314-3143
+	      </p>
+	    </div>
+	 </div>
+<script>
+	const panels = document.querySelectorAll('.panel');
+
+	function toggleOpen() {
+		this.classList.toggle('open');
+	}
+
+	function toggleActive(e) {
+		console.log(e.propertyName);
+		if(e.propertyName.includes('flex')) {
+			this.classList.toggle('open-active');
+		}
+	}
+
+	panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+	panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
+</script>
+</body>
+</html>
